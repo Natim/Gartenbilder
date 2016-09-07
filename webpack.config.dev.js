@@ -16,18 +16,17 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  resolve: {
+    extensions: ["", ".js", ".jsx", ".css", ".eot", "png", ".woff", ".woff2", ".ttf", ".svg"]
+  },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: "babel",
+        loaders: ["babel"],
         include: [
-          path.join(__dirname, "src"),
           path.join(__dirname, "gartenbilder"),
-        ],
-        query: {
-          presets: ['react', 'es2015']
-        }
+        ]
       },
       {
         test: /\.css$/,
@@ -37,7 +36,11 @@ module.exports = {
           path.join(__dirname, "gartenbilder"),
           path.join(__dirname, "node_modules"),
         ],
-      }
+      },
+      { test: /\.png$/, loader: "url?limit=10000" },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+
     ]
   }
 };

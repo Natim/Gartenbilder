@@ -1,5 +1,7 @@
-export {
-  SERVER: "https://kinto.dev.mozaws.net/v1",
-  BUCKET: "kintobot",
-  COLLECTION: "wall"
+const settings = {
+  SERVER: "https://kinto-ota.dev.mozaws.net/v1",
+  BUCKET: "dadounets",
+  COLLECTION: "wall",
 };
+
+export default settings;

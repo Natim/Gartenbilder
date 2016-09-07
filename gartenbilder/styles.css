@@ -14,3 +14,12 @@ html, body {
     overflowY: 'auto';
     marginBottom: 24px;
 }
+
+.dropzone {
+	width: 100%;
+	height: 50px;
+	margin: 10px;
+	padding-top: 30px;
+	text-align: center;
+	border: 3px dotted black;
+}
